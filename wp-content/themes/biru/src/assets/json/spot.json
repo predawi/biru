@@ -1,0 +1,213 @@
+[
+    {
+        "id": 7,
+        "date": "2018-03-21T15:22:38",
+        "date_gmt": "2018-03-21T14:22:38",
+        "guid": {
+            "rendered": "http:\/\/localhost\/biru\/?post_type=spot&#038;p=7"
+        },
+        "modified": "2018-03-21T15:22:38",
+        "modified_gmt": "2018-03-21T14:22:38",
+        "slug": "loutland",
+        "status": "publish",
+        "type": "spot",
+        "link": "http:\/\/localhost\/biru\/spot\/loutland\/",
+        "title": {
+            "rendered": "L&rsquo;Outland"
+        },
+        "content": {
+            "rendered": "<p>Test description de spot.<\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>Extrait du spot<\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 8,
+        "menu_order": 0,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/localhost\/biru\/wp-json\/wp\/v2\/spot\/7"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/localhost\/biru\/wp-json\/wp\/v2\/spot"
+                }
+            ],
+            "about": [
+                {
+                    "href": "http:\/\/localhost\/biru\/wp-json\/wp\/v2\/types\/spot"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/localhost\/biru\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "version-history": [
+                {
+                    "href": "http:\/\/localhost\/biru\/wp-json\/wp\/v2\/spot\/7\/revisions"
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/localhost\/biru\/wp-json\/wp\/v2\/media\/8"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "http:\/\/localhost\/biru\/wp-json\/wp\/v2\/media?parent=7"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        },
+        "_embedded": {
+            "author": [
+                {
+                    "id": 1,
+                    "name": "admin",
+                    "url": "",
+                    "description": "",
+                    "link": "http:\/\/localhost\/biru\/author\/admin\/",
+                    "slug": "admin",
+                    "avatar_urls": {
+                        "24": "http:\/\/0.gravatar.com\/avatar\/91b8336efa21003709a6bb7347b16795?s=24&d=mm&r=g",
+                        "48": "http:\/\/0.gravatar.com\/avatar\/91b8336efa21003709a6bb7347b16795?s=48&d=mm&r=g",
+                        "96": "http:\/\/0.gravatar.com\/avatar\/91b8336efa21003709a6bb7347b16795?s=96&d=mm&r=g"
+                    },
+                    "_links": {
+                        "self": [
+                            {
+                                "href": "http:\/\/localhost\/biru\/wp-json\/wp\/v2\/users\/1"
+                            }
+                        ],
+                        "collection": [
+                            {
+                                "href": "http:\/\/localhost\/biru\/wp-json\/wp\/v2\/users"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "id": 8,
+                    "date": "2018-03-21T15:22:13",
+                    "slug": "bar_6-min",
+                    "type": "attachment",
+                    "link": "http:\/\/localhost\/biru\/spot\/loutland\/bar_6-min\/",
+                    "title": {
+                        "rendered": "Bar_6-min"
+                    },
+                    "author": 1,
+                    "caption": {
+                        "rendered": ""
+                    },
+                    "alt_text": "",
+                    "media_type": "image",
+                    "mime_type": "image\/jpeg",
+                    "media_details": {
+                        "width": 1920,
+                        "height": 1300,
+                        "file": "2018\/03\/Bar_6-min.jpg",
+                        "sizes": {
+                            "thumbnail": {
+                                "file": "Bar_6-min-150x150.jpg",
+                                "width": 150,
+                                "height": 150,
+                                "mime_type": "image\/jpeg",
+                                "source_url": "http:\/\/localhost\/biru\/wp-content\/uploads\/2018\/03\/Bar_6-min-150x150.jpg"
+                            },
+                            "medium": {
+                                "file": "Bar_6-min-300x203.jpg",
+                                "width": 300,
+                                "height": 203,
+                                "mime_type": "image\/jpeg",
+                                "source_url": "http:\/\/localhost\/biru\/wp-content\/uploads\/2018\/03\/Bar_6-min-300x203.jpg"
+                            },
+                            "medium_large": {
+                                "file": "Bar_6-min-768x520.jpg",
+                                "width": 768,
+                                "height": 520,
+                                "mime_type": "image\/jpeg",
+                                "source_url": "http:\/\/localhost\/biru\/wp-content\/uploads\/2018\/03\/Bar_6-min-768x520.jpg"
+                            },
+                            "large": {
+                                "file": "Bar_6-min-1024x693.jpg",
+                                "width": 1024,
+                                "height": 693,
+                                "mime_type": "image\/jpeg",
+                                "source_url": "http:\/\/localhost\/biru\/wp-content\/uploads\/2018\/03\/Bar_6-min-1024x693.jpg"
+                            },
+                            "full": {
+                                "file": "Bar_6-min.jpg",
+                                "width": 1920,
+                                "height": 1300,
+                                "mime_type": "image\/jpeg",
+                                "source_url": "http:\/\/localhost\/biru\/wp-content\/uploads\/2018\/03\/Bar_6-min.jpg"
+                            }
+                        },
+                        "image_meta": {
+                            "aperture": "0",
+                            "credit": "",
+                            "camera": "",
+                            "caption": "",
+                            "created_timestamp": "0",
+                            "copyright": "",
+                            "focal_length": "0",
+                            "iso": "0",
+                            "shutter_speed": "0",
+                            "title": "",
+                            "orientation": "0",
+                            "keywords": []
+                        }
+                    },
+                    "source_url": "http:\/\/localhost\/biru\/wp-content\/uploads\/2018\/03\/Bar_6-min.jpg",
+                    "_links": {
+                        "self": [
+                            {
+                                "href": "http:\/\/localhost\/biru\/wp-json\/wp\/v2\/media\/8"
+                            }
+                        ],
+                        "collection": [
+                            {
+                                "href": "http:\/\/localhost\/biru\/wp-json\/wp\/v2\/media"
+                            }
+                        ],
+                        "about": [
+                            {
+                                "href": "http:\/\/localhost\/biru\/wp-json\/wp\/v2\/types\/attachment"
+                            }
+                        ],
+                        "author": [
+                            {
+                                "embeddable": true,
+                                "href": "http:\/\/localhost\/biru\/wp-json\/wp\/v2\/users\/1"
+                            }
+                        ],
+                        "replies": [
+                            {
+                                "embeddable": true,
+                                "href": "http:\/\/localhost\/biru\/wp-json\/wp\/v2\/comments?post=8"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+]

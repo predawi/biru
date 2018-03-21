@@ -1,0 +1,15 @@
+.header {
+    @media screen and (min-width: $desktop-small) {
+        position: absolute;
+        top: 0; left: 0;
+        height: 100vh;
+        border-left: 2px solid $maincolor;
+    }
+    &__logo {
+        display: block;
+        @media screen and (min-width: $desktop-small) {
+            width: 246px;
+            height: auto;
+        }
+    }
+}

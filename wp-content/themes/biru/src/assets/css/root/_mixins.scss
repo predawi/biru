@@ -1,0 +1,165 @@
+/* Misc mixins
+-------------------------------------------------------------- */
+@mixin declare-font-face($font-family, $font-filename, $font-weight : normal, $font-style :normal, $font-stretch : normal){
+	@font-face{
+		font-family: '#{$font-family}';
+		font-weight: $font-weight;
+		font-style: $font-style;
+		font-stretch: $font-stretch;
+		src: url(#{$font-filename}.woff2) format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+			 url(#{$font-filename}.woff) format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	}
+}
+
+//Example of effective font declaration
+//@include declare-font-face("font-family-name", "#{$fonts-url}/font-folder/font-name"); //regular
+//@include declare-font-face("font-family-name", "#{$fonts-url}/font-folder/font-name-bold", bold); //bold
+//@include declare-font-face("font-family-name", "#{$fonts-url}/font-folder/font-name-light", 300); //light
+//@include declare-font-face("font-family-name", "#{$fonts-url}/font-folder/font-name-extrabold", 900); //extrabold
+
+//Hover Active Focus pseudo selector mixin
+@mixin hover {
+	&:hover, &:active, &:focus {
+		@content;
+	}
+}
+//image responsive
+@mixin img__responsive($max-width:100%) {
+	display: block;
+	max-width: $max-width;
+	height: auto;
+}
+//insert content for extra style
+@mixin pseudo__content {
+	content: "";
+	display: block;
+	speak: none;
+}
+
+//Mixin for custom checkbox
+@mixin checkbox--custom($color: $maincolor, $size: 20px, $border-width: 2px) {
+	margin-bottom: 20px;
+	input[type="checkbox"],
+	input[type="radio"] {
+		position: absolute;
+		left: -999em;
+		top: -999em;
+		opacity: 0;
+		&+label {
+			display: block;
+			cursor: pointer;
+			position: relative;
+			padding-left: $size * 1.5;
+			&:before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 1px;
+				background-color: transparent;
+				width: $size;
+				height: $size;
+				margin: 0;
+				border: $border-width solid $color;
+				cursor: pointer;
+				transition: background-color .25s ease;
+			}
+		}
+		&:checked {
+			&+label {
+				&:before {
+					background-color: $color;
+				}
+			}
+		}
+	}
+}
+
+// Custom radio
+@mixin radio--custom() {
+	input[type="radio"] {
+		&+label {
+			&:before {
+				border-radius: 50%;
+			}
+		}
+	}
+}
+
+
+/* Bourbon's mixins
+-------------------------------------------------------------- */
+$em-base: 16px !default;
+// Strip units
+@function strip-units($value) {
+	@return ($value / ($value * 0 + 1));
+}
+// PX to EM
+@function em($pxval, $base: $em-base) {
+	@if not unitless($pxval) {
+	  $pxval: strip-units($pxval);
+	}
+	@if not unitless($base) {
+	  $base: strip-units($base);
+	}
+	@return ($pxval / $base) * 1em;
+}
+// PX to REM
+@function rem($pxval) {
+	@if not unitless($pxval) {
+	  $pxval: strip-units($pxval);
+	}
+
+	$base: $em-base;
+	@if not unitless($base) {
+	  $base: strip-units($base);
+	}
+	@return ($pxval / $base) * 1rem;
+}
+// Clearfix
+@mixin clearfix {
+	&::after {
+	  clear: both;
+	  content: "";
+	  display: table;
+	}
+}
+
+// Appearence for form elements
+@mixin appearance($value) {
+	appearance: $value;
+}
+
+// Assign inputs
+@function assign-inputs($inputs, $pseudo: null) {
+	$list: ();
+
+	@each $input in $inputs {
+		$input: unquote($input);
+		$input: if($pseudo, $input + ":" + $pseudo, $input);
+		$list: append($list, $input, comma);
+	}
+
+	@return $list;
+}
+
+// Customize placeholder
+@mixin placeholder {
+	$placeholders: ":-webkit-input" ":-moz" "-moz" "-ms-input";
+	@each $placeholder in $placeholders {
+	  &:#{$placeholder}-placeholder {
+		@content;
+	  }
+	}
+}
+
+// Word wrap
+@mixin word-wrap($wrap: break-word) {
+	overflow-wrap: $wrap;
+	word-wrap: $wrap;
+
+	@if $wrap == break-word {
+	  word-break: break-all;
+	} @else {
+	  word-break: $wrap;
+	}
+}

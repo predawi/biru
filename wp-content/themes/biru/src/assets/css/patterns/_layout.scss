@@ -1,0 +1,34 @@
+/* Main Layout
+----------------------------------------------------------------------------------------------------*/
+
+.master-container {
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+    position: relative;
+    @include container;
+    padding: 0 10px;
+    @media screen and (min-width: $desktop-small) {
+        padding: 0;
+        &.posts-list {
+            @include with-layout($susy-posts) {
+                @include container;
+            }
+        }
+    }
+}
+
+.content {
+    @media screen and (min-width: $desktop-small) {
+        @include span(9);
+    }
+}
+
+.sidebar {
+    @media screen and (min-width: $desktop-small) {
+        @include span(3 last);
+    }
+}

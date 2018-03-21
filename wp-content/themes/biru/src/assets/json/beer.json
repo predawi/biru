@@ -1,0 +1,213 @@
+[
+    {
+        "id": 4,
+        "date": "2018-03-21T12:32:48",
+        "date_gmt": "2018-03-21T11:32:48",
+        "guid": {
+            "rendered": "http:\/\/localhost\/biru\/?post_type=biere&#038;p=4"
+        },
+        "modified": "2018-03-21T12:35:24",
+        "modified_gmt": "2018-03-21T11:35:24",
+        "slug": "premiere-biere",
+        "status": "publish",
+        "type": "biere",
+        "link": "http:\/\/localhost\/biru\/biere\/premiere-biere\/",
+        "title": {
+            "rendered": "Premi\u00e8re bi\u00e8re"
+        },
+        "content": {
+            "rendered": "<p>Test d&rsquo;ajout de la premi\u00e8re bi\u00e8re de la semaine.<\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>Premi\u00e8re bi\u00e8re de la semaine !<\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 6,
+        "menu_order": 0,
+        "template": "",
+        "format": "standard",
+        "meta": [],
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/localhost\/biru\/wp-json\/wp\/v2\/biere\/4"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/localhost\/biru\/wp-json\/wp\/v2\/biere"
+                }
+            ],
+            "about": [
+                {
+                    "href": "http:\/\/localhost\/biru\/wp-json\/wp\/v2\/types\/biere"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/localhost\/biru\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "version-history": [
+                {
+                    "href": "http:\/\/localhost\/biru\/wp-json\/wp\/v2\/biere\/4\/revisions"
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "embeddable": true,
+                    "href": "http:\/\/localhost\/biru\/wp-json\/wp\/v2\/media\/6"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "http:\/\/localhost\/biru\/wp-json\/wp\/v2\/media?parent=4"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        },
+        "_embedded": {
+            "author": [
+                {
+                    "id": 1,
+                    "name": "admin",
+                    "url": "",
+                    "description": "",
+                    "link": "http:\/\/localhost\/biru\/author\/admin\/",
+                    "slug": "admin",
+                    "avatar_urls": {
+                        "24": "http:\/\/0.gravatar.com\/avatar\/91b8336efa21003709a6bb7347b16795?s=24&d=mm&r=g",
+                        "48": "http:\/\/0.gravatar.com\/avatar\/91b8336efa21003709a6bb7347b16795?s=48&d=mm&r=g",
+                        "96": "http:\/\/0.gravatar.com\/avatar\/91b8336efa21003709a6bb7347b16795?s=96&d=mm&r=g"
+                    },
+                    "_links": {
+                        "self": [
+                            {
+                                "href": "http:\/\/localhost\/biru\/wp-json\/wp\/v2\/users\/1"
+                            }
+                        ],
+                        "collection": [
+                            {
+                                "href": "http:\/\/localhost\/biru\/wp-json\/wp\/v2\/users"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "id": 6,
+                    "date": "2018-03-21T12:35:17",
+                    "slug": "punkipa1",
+                    "type": "attachment",
+                    "link": "http:\/\/localhost\/biru\/biere\/premiere-biere\/punkipa1\/",
+                    "title": {
+                        "rendered": "PunkIPA1"
+                    },
+                    "author": 1,
+                    "caption": {
+                        "rendered": ""
+                    },
+                    "alt_text": "",
+                    "media_type": "image",
+                    "mime_type": "image\/jpeg",
+                    "media_details": {
+                        "width": 1240,
+                        "height": 827,
+                        "file": "2018\/03\/PunkIPA1.jpg",
+                        "sizes": {
+                            "thumbnail": {
+                                "file": "PunkIPA1-150x150.jpg",
+                                "width": 150,
+                                "height": 150,
+                                "mime_type": "image\/jpeg",
+                                "source_url": "http:\/\/localhost\/biru\/wp-content\/uploads\/2018\/03\/PunkIPA1-150x150.jpg"
+                            },
+                            "medium": {
+                                "file": "PunkIPA1-300x200.jpg",
+                                "width": 300,
+                                "height": 200,
+                                "mime_type": "image\/jpeg",
+                                "source_url": "http:\/\/localhost\/biru\/wp-content\/uploads\/2018\/03\/PunkIPA1-300x200.jpg"
+                            },
+                            "medium_large": {
+                                "file": "PunkIPA1-768x512.jpg",
+                                "width": 768,
+                                "height": 512,
+                                "mime_type": "image\/jpeg",
+                                "source_url": "http:\/\/localhost\/biru\/wp-content\/uploads\/2018\/03\/PunkIPA1-768x512.jpg"
+                            },
+                            "large": {
+                                "file": "PunkIPA1-1024x683.jpg",
+                                "width": 1024,
+                                "height": 683,
+                                "mime_type": "image\/jpeg",
+                                "source_url": "http:\/\/localhost\/biru\/wp-content\/uploads\/2018\/03\/PunkIPA1-1024x683.jpg"
+                            },
+                            "full": {
+                                "file": "PunkIPA1.jpg",
+                                "width": 1240,
+                                "height": 827,
+                                "mime_type": "image\/jpeg",
+                                "source_url": "http:\/\/localhost\/biru\/wp-content\/uploads\/2018\/03\/PunkIPA1.jpg"
+                            }
+                        },
+                        "image_meta": {
+                            "aperture": "7.1",
+                            "credit": "",
+                            "camera": "Canon EOS 6D",
+                            "caption": "",
+                            "created_timestamp": "1405428650",
+                            "copyright": "",
+                            "focal_length": "50",
+                            "iso": "640",
+                            "shutter_speed": "0.00625",
+                            "title": "",
+                            "orientation": "1",
+                            "keywords": []
+                        }
+                    },
+                    "source_url": "http:\/\/localhost\/biru\/wp-content\/uploads\/2018\/03\/PunkIPA1.jpg",
+                    "_links": {
+                        "self": [
+                            {
+                                "href": "http:\/\/localhost\/biru\/wp-json\/wp\/v2\/media\/6"
+                            }
+                        ],
+                        "collection": [
+                            {
+                                "href": "http:\/\/localhost\/biru\/wp-json\/wp\/v2\/media"
+                            }
+                        ],
+                        "about": [
+                            {
+                                "href": "http:\/\/localhost\/biru\/wp-json\/wp\/v2\/types\/attachment"
+                            }
+                        ],
+                        "author": [
+                            {
+                                "embeddable": true,
+                                "href": "http:\/\/localhost\/biru\/wp-json\/wp\/v2\/users\/1"
+                            }
+                        ],
+                        "replies": [
+                            {
+                                "embeddable": true,
+                                "href": "http:\/\/localhost\/biru\/wp-json\/wp\/v2\/comments?post=6"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+]
