@@ -1,0 +1,15 @@
+.entry {
+    color: $maingrey;
+    background: rgba($darkcolor, 0.9);
+    @media screen and (min-width: $desktop-small) {
+        position: absolute;
+        top: 0;
+        left: 450px;
+        width: 574px;
+        height: 100vh;
+        padding: 30px;
+    }
+    img {
+        @include img__responsive;
+    }
+}

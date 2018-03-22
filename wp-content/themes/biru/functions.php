@@ -354,4 +354,6 @@ function create_follow_cpt() {
 }
 add_action( 'init', 'create_follow_cpt', 0 );
 
-add_theme_support('post-thumbnails');
+add_theme_support( 'post-thumbnails' );
+
+wp_enqueue_style( 'googlefont', 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700|Roboto:400,700,900', false, '1.0', 'all' );

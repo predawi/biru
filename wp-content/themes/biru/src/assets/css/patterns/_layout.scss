@@ -5,10 +5,20 @@
     min-height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
+    &:after {
+        position: absolute;
+        z-index: 1;
+        top: 0; left: 0;
+        width: 50%; height: 100%;
+        content: "";
+        background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+        opacity: 0.75;
+    }
 }
 
 .container {
     position: relative;
+    z-index: 2;
     @include container;
     padding: 0 10px;
     @media screen and (min-width: $desktop-small) {

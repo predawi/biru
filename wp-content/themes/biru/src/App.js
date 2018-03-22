@@ -1,49 +1,103 @@
 import React, { Component, Fragment } from 'react'
-// import axios from 'axios';
 import './assets/css/App.min.css'
-import beerDdata from './assets/json/beer.json'
-import spotData from './assets/json/spot.json'
 
 /* Components */
 import Header from './Header'
 import Nav from './Nav'
-import Beer from './Beer'
 
 class App extends Component {
   state = {
-    loading: false,
     beer: [],
-    spot: []
+    spot: [],
+    loading: false
   }
   componentWillMount = async () => {
+    this.setState({loading: true})
+    const beerRes = await fetch('http://localhost/biru/wp-json/wp/v2/biere?_embed')
+    const beerData = await beerRes.json()
+
+    const spotRes = await fetch('http://localhost/biru/wp-json/wp/v2/spot?_embed')
+    const spotData = await spotRes.json()
+
+    const followRes = await fetch('http://localhost/biru/wp-json/wp/v2/follow?_embed')
+    const followData = await followRes.json()
+
+    const packRes = await fetch('http://localhost/biru/wp-json/wp/v2/packaging?_embed')
+    const packData = await packRes.json()
+
+    const gifRes = await fetch('http://localhost/biru/wp-json/wp/v2/gif')
+    const gifData = await gifRes.json()
+
     this.setState({
-      loading: true
-    })
-    this.setState({
-      beer: beerDdata[0],
-      beerBg: beerDdata[0]._embedded['wp:featuredmedia']['0'].source_url,
-      beerTitle: beerDdata[0].title.rendered,
+      beer: beerData[0],
+      beerBg: beerData[0]._embedded['wp:featuredmedia']['0'].source_url,
+      beerTitle: beerData[0].title.rendered,
       spot: spotData[0],
       spotTitle: spotData[0].title.rendered,
+      follow: followData[0],
+      followTitle: followData[0].title.rendered,
+      pack: packData[0],
+      gif: gifData[0],
       loading: false
     })
   }
+  handleClick = (e) => {
+    const { beer, spot, follow, pack, gif } = this.state
+    let content
+    let id = e.currentTarget.id
+    let entry = document.getElementById('entry')
+
+    let navItems = document.getElementsByClassName('main-nav__item')
+    for (var i = 0; i < navItems.length; i++) {
+      navItems[i].classList.remove('active')
+    }
+
+    e.currentTarget.classList.add('active')
+
+    switch (id) {
+      case 'botw':
+        content = beer.content.rendered
+        break
+      case 'sotw':
+        content = '<img src=' + spot._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url + '>' +
+                  spot.content.rendered
+        break
+      case 'fotw':
+        content = '<img src=' + follow._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url + '>' +
+                  follow.content.rendered
+        break
+      case 'potw':
+        content = '<img src=' + pack._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url + '>' +
+                  pack.content.rendered
+        break
+      case 'gotw':
+        content = gif.content.rendered
+        break
+      default:
+        break
+    }
+    entry.innerHTML = content
+  }
   render () {
-    const { beer, beerBg, beerTitle, spotTitle, loading } = this.state
+    const { loading, beerBg, beerTitle, spotTitle, followTitle } = this.state
     const divStyle = {
       backgroundImage: 'url(' + beerBg + ')'
     }
+
     return (
       <Fragment>
-        <div className="master-container" style={divStyle}>
-          <div className="container">
-            <div className="header">
-              <Header />
-              <Nav className="main-nav" beerTitle={beerTitle} spotTitle={spotTitle}/>
-              {loading ? 'Fetching posts ...' : <Beer beer={beer}/> }
+        {loading && <p>Fetching...</p>}
+        {!loading &&
+          <div className="master-container" style={divStyle}>
+            <div className="container">
+              <div className="header">
+                <Header />
+                <Nav beerTitle={beerTitle} spotTitle={spotTitle} followTitle={followTitle} handleClick={this.handleClick} />
+              </div>
+              <div id="entry" className="entry"></div>
             </div>
           </div>
-        </div>
+        }
       </Fragment>
     )
   }

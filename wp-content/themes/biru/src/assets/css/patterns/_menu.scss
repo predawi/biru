@@ -1,5 +1,68 @@
 .main-nav {
+    button {
+        position: relative;
+        display: inline-block;
+        padding: 0;
+        text-align: left;
+        border: 0;
+        border-radius: 0;
+        outline: none;
+        background: none;
+        box-shadow: none;
+        color: $lightcolor;
+        text-transform: uppercase;
+        span {
+            display: block;
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            left: -20px; top: 50%;
+            width: 0;
+            background: $maincolor;
+            transition: width 0.2s ease-in-out;
+        }
+        &.active {
+            &:after {
+                width: calc(100% + 20px);
+            }
+        }
+        @include hover {
+            &:after {
+                width: calc(100% + 20px);
+            }
+        }
+    }
     @media screen and (min-width: $desktop-small) {
-        
+        padding-left: 20px;
+        li {
+            margin-bottom: 30px;
+            &:first-child {
+                margin-bottom: 80px;
+                button {
+                    font-size: 21px;
+                    span {
+                        line-height: 47px;
+                        font-size: 63px;
+                    }
+                    &:after {
+                        height: 45px;
+                        margin-top: -20px;
+                    }
+                }
+            }
+        }
+        button {
+            line-height: 25px;
+            font-size: 15px;
+            span {
+                font-size: 30px;
+            }
+            &:after {
+                height: 30px;
+                margin-top: -15px;
+            }
+        }
     }
 }

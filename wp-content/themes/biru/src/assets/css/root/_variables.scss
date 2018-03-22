@@ -33,8 +33,8 @@ $fixedgrid:(
 $zindex: 1;
 
 //Fonts
-$font-sansserif: Arial, Helvetica, sans-serif;
-$font-serif: Times, Georgia, serif;
+$font-sansserif: 'Roboto', Arial, Helvetica, sans-serif;
+$font-serif: 'Open Sans Condensed', Times, Georgia, serif;
 
 // Font Sizes
 $base-font-size: 16px;
@@ -56,7 +56,7 @@ $textcolor: #263D55;
 $lightcolor: #fff;
 $darkcolor: #000;
 
-$maingrey: #65778A;
+$maingrey: #c5c5c5;
 $dark-gray: #333;
 $medium-gray: #999;
 $light-gray: #ddd;

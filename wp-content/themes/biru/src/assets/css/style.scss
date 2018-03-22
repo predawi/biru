@@ -15,11 +15,13 @@
 
 // Base components
 @import "components/text";
+@import "components/img";
 
 //Main websites patterns
 @import "patterns/layout";
 @import "patterns/header";
 @import "patterns/menu";
+@import "patterns/entry";
 
 //Pages
 @import "pages/app";

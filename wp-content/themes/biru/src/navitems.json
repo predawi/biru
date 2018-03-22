@@ -1,0 +1,24 @@
+[
+  {
+    "id": "botw",
+    "sublabel": "Bière de la semaine"
+  },
+  {
+    "id": "sotw",
+    "sublabel": "Bière de la semaine"
+  },
+  {
+    "id": "fotw",
+    "sublabel": "Follow de la semaine"
+  },
+  {
+    "id": "potw",
+    "label": "Le packaging",
+    "sublabel": "de la semaine"
+  },
+  {
+    "id": "gotw",
+    "label": "Le gif",
+    "sublabel": "de la semaine"
+  }
+]
