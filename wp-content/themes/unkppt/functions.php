@@ -372,5 +372,3 @@ function get_meta_to_response( $object, $field_name, $request ) {
 }
 
 add_theme_support( 'post-thumbnails' );
-
-wp_enqueue_style( 'googlefont', 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700|Roboto:400,700,900', false, '1.0', 'all' );

@@ -11,8 +11,11 @@
         box-shadow: none;
         color: $lightcolor;
         text-transform: uppercase;
+        font-family: $font-sansserif-alt;
         span {
             display: block;
+            font-family: $font-sansserif;
+            font-weight: 900;
         }
         &:after {
             content: "";
@@ -60,7 +63,7 @@
                 font-size: 30px;
             }
             &:after {
-                height: 30px;
+                height: 28px;
                 margin-top: -15px;
             }
         }

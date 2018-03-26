@@ -1,4 +1,5 @@
 .entry {
+    $parent: &;
     color: $maingrey;
     background: rgba($darkcolor, 0.9);
     @media screen and (min-width: $desktop-small) {
@@ -6,19 +7,65 @@
         top: 0;
         left: 450px;
         width: 574px;
-        height: 100vh;
+        height: 0;
         padding: 30px;
+        opacity: 0;
+        overflow: scroll;
+        overflow-x: hidden;
+    }
+    &::-webkit-scrollbar {
+        width: 0px;
+        /* remove scrollbar space */
+        background: transparent;
+        /* optional: just make scrollbar invisible */
+    }
+    &__inner {
+        p {
+            margin-top: -10px;
+            opacity: 0;
+        }
+    }
+    a {
+        position: relative;
+        z-index: 1;
+        display: inline-block;
+        color: $lightcolor;
+        &:after {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            left: 4px; bottom: 3px;
+            width: 0; height: 6px;
+            background: $maincolor;
+            transition: width .2s cubic-bezier(.9, 0, 0, 1);
+        }
+        @include hover {
+            &:after {
+                width: 100%;
+            }
+        }
     }
     img {
         @include img__responsive;
     }
+    &__thumbnail {
+        margin: 0 auto 30px;
+    }
     &__note__wrapper {
         position: relative;
+        top: 25px;
         z-index: 1;
-        display: inline-block;
+        display: block;
+        width: 130px;
+        margin: auto;
         line-height: 36px;
+        text-align: center;
         font-size: 50px;
+        font-weight: 900;
         color: $lightcolor;
+        @media screen and (min-width: $desktop-small) {
+            top: 50px;
+        }
         &:after {
             content: "";
             position: absolute;
@@ -30,5 +77,64 @@
     }
     &__note {
         color: $maincolor;
+    }
+
+    // Animations
+    &.opening {
+        @media screen and (min-width: $desktop-small) {
+            animation: opening 1s cubic-bezier(.9, 0, 0, 1) forwards;
+        }
+    }
+    &.closing {
+        @media screen and (min-width: $desktop-small) {
+            animation: closing .5s ease-in-out forwards;
+        }
+    }
+    &.opened {
+        @media screen and (min-width: $desktop-small) {
+            #{$parent}__inner {
+                p {
+                    @for $i from 1 through 8 {
+                        &:nth-child(#{$i}) {
+                            animation-delay: calc(#{$i} * 0.08s + 0.5s);
+                        }
+                    }
+                    animation-name: revealed;
+                    animation-duration: .3s;
+                    animation-fill-mode: forwards;
+                }
+            }
+        }
+    }
+}
+
+@keyframes opening {
+    from {
+        height: 0;
+        opacity: 0;
+    }
+    to {
+        height: 100vh;
+        opacity: 1;
+    }
+}
+@keyframes closing {
+    from {
+        height: 100vh;
+        opacity: 1;
+    }
+    to {
+        height: 0;
+        opacity: 0;
+    }
+}
+@keyframes revealed {
+    from {
+        margin-top: -20px;
+        opacity: 0;
+    }
+    to {
+        margin-top: 0;
+        opacity: 1;
     }
 }
