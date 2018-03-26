@@ -3,17 +3,17 @@
         position: absolute;
         top: 0; left: 30px;
         height: 100vh;
-        padding-top: 45px;
+        padding-top: 15px;
         border-left: 2px solid $maincolor;
     }
     &__logo {
         display: block;
         @media screen and (min-width: $desktop-small) {
             position: relative;
-            left: -32px;
-            width: 246px;
+            left: -25px;
+            width: 380px;
             height: auto;
-            margin-bottom: 10vh;
+            margin-bottom: 12vh;
         }
     }
 }

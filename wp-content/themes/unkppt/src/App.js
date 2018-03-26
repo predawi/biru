@@ -56,7 +56,8 @@ class App extends Component {
 
     switch (id) {
       case 'botw':
-        content = beer.content.rendered
+        content = beer.content.rendered +
+                  '<span class="entry__note__wrapper"><span class="entry__note">' + beer.note + '</span> / 10</span>'
         break
       case 'sotw':
         content = '<img src=' + spot._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url + '>' +

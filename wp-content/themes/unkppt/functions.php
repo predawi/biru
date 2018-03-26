@@ -354,6 +354,23 @@ function create_follow_cpt() {
 }
 add_action( 'init', 'create_follow_cpt', 0 );
 
+// Add custom fields to json response
+function slug_register_featured() {
+	register_rest_field( 'biere',
+		'note',
+		array(
+			'get_callback'    => 'get_meta_to_response',
+			'update_callback' => null,
+			'schema'          => null,
+		)
+	);
+}
+add_action( 'rest_api_init', 'slug_register_featured' );
+
+function get_meta_to_response( $object, $field_name, $request ) {
+	return get_post_meta( $object[ 'id' ], $field_name, true );
+}
+
 add_theme_support( 'post-thumbnails' );
 
 wp_enqueue_style( 'googlefont', 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700|Roboto:400,700,900', false, '1.0', 'all' );
