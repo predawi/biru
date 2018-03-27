@@ -1,7 +1,7 @@
 .entry {
     $parent: &;
-    color: $maingrey;
-    background: rgba($darkcolor, 0.9);
+    color: $dark-gray;
+    background: $lightcolor;
     @media screen and (min-width: $desktop-small) {
         position: absolute;
         top: 0;
@@ -49,7 +49,9 @@
         @include img__responsive;
     }
     &__thumbnail {
-        margin: 0 auto 30px;
+        img {
+            margin: 0 auto 30px;
+        }
     }
     &__note__wrapper {
         position: relative;
@@ -62,7 +64,7 @@
         text-align: center;
         font-size: 50px;
         font-weight: 900;
-        color: $lightcolor;
+        color: $dark-gray;
         @media screen and (min-width: $desktop-small) {
             top: 50px;
         }
