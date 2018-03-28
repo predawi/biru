@@ -32,8 +32,8 @@ class App extends Component {
     const packRes = await fetch(baseFetch + 'packaging' + limitFetch)
     const packData = await packRes.json()
 
-    const gifRes = await fetch(baseFetch + 'gif' + limitFetch)
-    const gifData = await gifRes.json()
+    // const gifRes = await fetch(baseFetch + 'gif' + limitFetch)
+    // const gifData = await gifRes.json()
 
     this.setState({
       beer: beerData[0],
@@ -44,7 +44,7 @@ class App extends Component {
       follow: followData[0],
       followTitle: followData[0].title.rendered,
       pack: packData[0],
-      gif: gifData[0],
+      // gif: gifData[0],
       loading: false
     })
   }
@@ -54,10 +54,11 @@ class App extends Component {
   }
 
   handleClick = (e) => {
-    const { beer, spot, follow, pack, gif } = this.state
+    const { beer, spot, follow, pack } = this.state
     let content
     let id = e.currentTarget.id
-    let entry = document.getElementById('entry')
+    const entry = document.getElementById('entry')
+    const entryInner = document.getElementById('entry__inner')
 
     let navItems = document.getElementsByClassName('main-nav__item')
     for (var i = 0; i < navItems.length; i++) {
@@ -87,31 +88,47 @@ class App extends Component {
 
     switch (id) {
       case 'botw':
-        content = '<div class="entry__inner">' + beer.content.rendered +
-                  '<p class="entry__note__wrapper"><span class="entry__note">' + beer.note + '</span> / 10</p><div>'
+        content = beer.content.rendered +
+                  '<p class="entry__note__wrapper"><span class="entry__note">' + beer.note + '</span> / 10</p>'
         break
       case 'sotw':
-        content = '<div class="entry__inner"><p class="entry__thumbnail"><img src=' + spot._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url + '></p>' +
-                  spot.content.rendered + '</div>'
+        content = '<p class="entry__thumbnail"><img src=' + spot._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url + '></p>' +
+                  spot.content.rendered
         break
       case 'fotw':
-        content = '<div class="entry__inner"><p class="entry__thumbnail"><img src=' + follow._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url + '></p>' +
-                  follow.content.rendered + '</div>'
+        content = '<p class="entry__thumbnail"><img src=' + follow._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url + '></p>' +
+                  follow.content.rendered
         break
       case 'potw':
-        content = '<div class="entry__inner"><p class="entry__thumbnail"><img src=' + pack._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url + '></p>' +
-                  pack.content.rendered + '</div>'
+        content = '<p class="entry__thumbnail"><img src=' + pack._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url + '></p>' +
+                  pack.content.rendered
         break
-      case 'gotw':
-        content = '<div class="entry__inner">' + gif.content.rendered + '</div>'
-        break
+      /* case 'gotw':
+        content = gif.content.rendered
+        break */
       default:
         break
     }
     setTimeout(() => {
-      entry.innerHTML = content
+      entryInner.innerHTML = content
     }, $timer)
+
+    e.preventDefault()
   }
+
+  closeClick = (e) => {
+    const entry = document.getElementById('entry')
+    $timer = 500
+
+    entry.classList.add('closing')
+    setTimeout(() => {
+      entry.classList.remove('opening')
+      entry.classList.remove('opened')
+    }, $timer)
+
+    e.preventDefault()
+  }
+
   render () {
     const { loading, show, beerBg, beerTitle, spotTitle, followTitle } = this.state
     const divStyle = {
@@ -120,7 +137,14 @@ class App extends Component {
 
     return (
       <Fragment>
-        {loading && <p>Fetching...</p>}
+        {loading &&
+          <div className="loading">
+            <div className="translater">
+              <img src={require('./assets/img/cap.svg')} className="loading__cap" alt="" />
+            </div>
+            <p>Décapsulage...</p>
+          </div>
+        }
         {!loading &&
           <div className="master-container">
             <div className={show ? 'background-cover loaded' : null} style={divStyle}></div>
@@ -130,7 +154,12 @@ class App extends Component {
                 <Nav beerTitle={beerTitle} spotTitle={spotTitle} followTitle={followTitle} handleClick={this.handleClick} />
                 <AltNav />
               </div>
-              <div id="entry" className="entry"></div>
+              <div id="entry" className="entry">
+                <button id="entry__close" className="entry__close" onClick={this.closeClick}>
+                  <img src={require('./assets/img/close.svg')} alt="Close" />
+                </button>
+                <div id="entry__inner" className="entry__inner"></div>
+              </div>
             </div>
           </div>
         }

@@ -5,20 +5,15 @@
   },
   {
     "id": "sotw",
-    "sublabel": "Bar de la semaine"
+    "sublabel": "Spot de la semaine"
   },
   {
     "id": "fotw",
-    "sublabel": "Follow de la semaine"
+    "sublabel": "Réseau de la semaine"
   },
   {
     "id": "potw",
     "label": "Le packaging",
-    "sublabel": "de la semaine"
-  },
-  {
-    "id": "gotw",
-    "label": "Le gif",
     "sublabel": "de la semaine"
   }
 ]

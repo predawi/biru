@@ -1,8 +1,16 @@
 .main-nav {
+    ul {
+        margin: 0;
+    }
+    li {
+        padding: 7px 0;
+    }
     button {
         position: relative;
         display: inline-block;
         padding: 0;
+        line-height: 32px;
+        font-size: 29px;
         text-align: left;
         border: 0;
         border-radius: 0;
@@ -41,6 +49,7 @@
         padding-left: 20px;
         li {
             margin-bottom: 30px;
+            padding: 0;
             &:first-child {
                 margin-bottom: 80px;
                 button {

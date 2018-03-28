@@ -1,12 +1,14 @@
 .header {
+    padding-top: 15px;
     @media screen and (min-width: $desktop-small) {
         position: absolute;
         top: 0; left: 30px;
         height: 100vh;
-        padding-top: 15px;
     }
     &__logo {
         display: block;
+        max-width: 450px;
+        margin-bottom: 30px;
         @media screen and (min-width: $desktop-small) {
             position: relative;
             left: -25px;
