@@ -9,6 +9,9 @@ function getTask(task) {
 //Styles
 gulp.task('sass', getTask('sass'));
 
+//Favicons
+gulp.task('favicon', getTask('favicon'));
+
 // On default task, just compile on demand
 gulp.task('default', ['sass'], function () {
 	gulp.watch(['./src/assets/css/*.scss', './src/assets/css/**/*.scss'], ['sass']);
