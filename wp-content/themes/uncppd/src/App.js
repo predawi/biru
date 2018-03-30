@@ -6,7 +6,12 @@ import Header from './Header'
 import Nav from './Nav'
 import AltNav from './AltNav'
 
-const baseFetch = 'http://localhost/biru/wp-json/wp/v2/'
+const cap = `${process.env.PUBLIC_URL}/src/assets/img/cap.svg`
+const close = `${process.env.PUBLIC_URL}/src/assets/img/close.svg`
+const baseFetch = '/wp-json/wp/v2/'
+// For developpement only
+// const baseFetch = 'http://localhost/biru/wp-json/wp/v2/'
+
 const limitFetch = '?per_page=1&_embed'
 let firstClick = true
 let $timer = 0
@@ -140,7 +145,7 @@ class App extends Component {
         {loading &&
           <div className="loading">
             <div className="translater">
-              <img src={require('./assets/img/cap.svg')} className="loading__cap" alt="" />
+              <img src={cap} className="loading__cap" alt="" />
             </div>
             <p>Décapsulage...</p>
           </div>
@@ -156,7 +161,7 @@ class App extends Component {
               </div>
               <div id="entry" className="entry">
                 <button id="entry__close" className="entry__close" onClick={this.closeClick}>
-                  <img src={require('./assets/img/close.svg')} alt="Close" />
+                  <img src={close} alt="Close" />
                 </button>
                 <div id="entry__inner" className="entry__inner"></div>
               </div>

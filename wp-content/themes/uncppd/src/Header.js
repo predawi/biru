@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 
+const logo = `${process.env.PUBLIC_URL}/src/assets/img/uncppd_logo.svg`
 // Dumb component
 const Header = () => (
-  <img src={require('./assets/img/uncppd_logo.svg')} className="header__logo" alt="Bïru" />
+  <Fragment>
+    <h1 className="visuallyhidden">Uncppd</h1>
+    <a href="/"><img src={logo} className="header__logo" alt="Bïru" /></a>
+  </Fragment>
 )
 
 export default Header
