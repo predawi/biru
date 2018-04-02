@@ -19,11 +19,12 @@
         box-shadow: none;
         color: $lightcolor;
         text-transform: uppercase;
-        font-family: $font-sansserif-alt;
+        font-family: $font-sansserif;
         span {
             display: block;
-            font-family: $font-sansserif;
+            font-family: $font-sansserif-alt;
             font-weight: 900;
+            letter-spacing: 1px;
         }
         &:after {
             content: "";
@@ -46,7 +47,6 @@
         }
     }
     @media screen and (min-width: $desktop-small) {
-        padding-left: 20px;
         li {
             margin-bottom: 30px;
             padding: 0;
