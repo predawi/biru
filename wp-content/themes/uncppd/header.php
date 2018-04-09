@@ -11,7 +11,7 @@
     <meta name="viewport" content="initial-scale=1.0" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>Uncppd</title>
+    <title><?php bloginfo( 'name' ); echo $title = get_the_title() ? ' | ' . get_the_title() : '' ?></title>
 
     <!-- Web App favicons from /assets/img/favicons/index_hd.html -->
         <link rel="manifest" href="<?php echo get_stylesheet_directory_uri(); ?>/src/assets/img/favicons/manifest.json">

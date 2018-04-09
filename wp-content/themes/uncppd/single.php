@@ -62,6 +62,7 @@
                         if ( $query->have_posts() ) {
                             while ( $query->have_posts() ) {
                             $query->the_post();
+                                echo '<h2>' . get_the_title() . '</h2>';
                                 echo '<p class="entry__thumbnail">' . get_the_post_thumbnail() . '</p>';
                                 the_content();
                             }
