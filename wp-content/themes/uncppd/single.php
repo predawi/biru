@@ -2,7 +2,13 @@
 <?php
     // Get custom post type
     $uri_segments = $segments = explode('/', trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/'));
-    $post_type = $uri_segments[0];
+
+    if( count($uri_segments) < 2 ) {
+        $post_type = 'post';
+    }
+    else {
+        $post_type = $uri_segments[0];
+    }
 ?>
     <div class="master-container">
         <div class="background-cover loaded" style="background-image: url(&quot;http://uncppd.com/wp-content/uploads/2018/03/punk_ipa.jpg&quot;);"></div>
