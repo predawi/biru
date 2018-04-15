@@ -55,7 +55,7 @@
                 .main-nav__item {
                     font-size: 21px;
                     span {
-                        line-height: 47px;
+                        line-height: 53px;
                         font-size: 63px;
                     }
                     &:after {
@@ -66,6 +66,7 @@
             }
         }
         .main-nav__item {
+            max-width: 450px;
             line-height: 25px;
             font-size: 15px;
             span {
