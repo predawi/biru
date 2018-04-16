@@ -51,7 +51,7 @@
             margin-bottom: 30px;
             padding: 0;
             &:first-child {
-                margin-bottom: 80px;
+                margin-bottom: 60px;
                 .main-nav__item {
                     font-size: 21px;
                     span {
@@ -66,7 +66,7 @@
             }
         }
         .main-nav__item {
-            max-width: 450px;
+            max-width: 440px;
             line-height: 25px;
             font-size: 15px;
             span {
@@ -77,5 +77,47 @@
                 margin-top: -15px;
             }
         }
+    }
+}
+.alt-nav {
+    display: none;
+    text-align: right;
+    a {
+        position: relative;
+        display: inline-block;
+        color: $lightcolor;
+        text-transform: uppercase;
+        font-family: $font-sansserif;
+        transition: color .3s ease-in-out;
+        &:after {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            left: 4px;
+            bottom: 3px;
+            width: 0;
+            height: 6px;
+            background: $maincolor;
+            transition: width .2s cubic-bezier(.9, 0, 0, 1);
+            .reading & {
+                background: rgba($maincolor, 0.3);
+            }
+        }
+        @include hover {
+            &:after {
+                width: 100%;
+            }
+        }
+    }
+    .reading & {
+        a {
+            color: $maincolor;
+        }
+    }
+    @media screen and (min-width: $desktop-small) {
+        position: absolute;
+        z-index: 2;
+        right: 10px; top: 49%;
+        display: block;
     }
 }

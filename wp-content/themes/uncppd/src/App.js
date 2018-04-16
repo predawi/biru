@@ -8,9 +8,9 @@ import AltNav from './AltNav'
 
 const cap = `${process.env.PUBLIC_URL}/src/assets/img/cap.svg`
 const close = `${process.env.PUBLIC_URL}/src/assets/img/close.svg`
-const baseFetch = '/wp-json/wp/v2/'
+// const baseFetch = '/wp-json/wp/v2/'
 // For developpement only
-// const baseFetch = 'http://localhost/biru/wp-json/wp/v2/'
+const baseFetch = 'http://localhost/biru/wp-json/wp/v2/'
 
 const limitFetch = '?per_page=1&_embed'
 let firstClick = true
@@ -62,6 +62,7 @@ class App extends Component {
     const { beer, spot, follow, pack } = this.state
     let content
     let id = e.currentTarget.id
+    const masterContainer = document.getElementById('master-container')
     const entry = document.getElementById('entry')
     const entryInner = document.getElementById('entry__inner')
 
@@ -77,6 +78,7 @@ class App extends Component {
       $timer = 500
       entry.classList.add('closing')
       setTimeout(() => {
+        masterContainer.classList.remove('reading')
         entry.classList.remove('opening')
         entry.classList.remove('opened')
       }, $timer)
@@ -88,6 +90,7 @@ class App extends Component {
       entry.classList.add('opening')
     }, $timer)
     setTimeout(() => {
+      masterContainer.classList.add('reading')
       entry.classList.add('opened')
     }, $timer + 300)
 
@@ -123,12 +126,14 @@ class App extends Component {
 
   closeClick = (e) => {
     const entry = document.getElementById('entry')
+    const masterContainer = document.getElementsByClassName('master-container')
     $timer = 500
 
     entry.classList.add('closing')
     setTimeout(() => {
       entry.classList.remove('opening')
       entry.classList.remove('opened')
+      masterContainer.classList.remove('reading')
     }, $timer)
 
     e.preventDefault()
@@ -151,13 +156,12 @@ class App extends Component {
           </div>
         }
         {!loading &&
-          <div className="master-container">
+          <div className="master-container" id="master-container">
             <div className={show ? 'background-cover loaded' : null} style={divStyle}></div>
             <div className="container">
               <div className="header">
                 <Header />
                 <Nav beerTitle={beerTitle} spotTitle={spotTitle} followTitle={followTitle} handleClick={this.handleClick} />
-                <AltNav />
               </div>
               <div id="entry" className="entry">
                 <button id="entry__close" className="entry__close" onClick={this.closeClick}>
@@ -166,6 +170,7 @@ class App extends Component {
                 <div id="entry__inner" className="entry__inner"></div>
               </div>
             </div>
+            <AltNav />
           </div>
         }
       </Fragment>
