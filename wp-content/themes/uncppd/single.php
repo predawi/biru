@@ -10,8 +10,16 @@
         $post_type = $uri_segments[0];
     }
 ?>
-    <div class="master-container">
-        <div class="background-cover loaded" style="background-image: url(&quot;http://uncppd.com/wp-content/uploads/2018/03/punk_ipa.jpg&quot;);"></div>
+    <div class="master-container reading">
+        <?php
+            $args = array( 'numberposts' => '1', 'post_type' => 'biere' );
+            $recent_posts = wp_get_recent_posts( $args );
+            foreach( $recent_posts as $recent ) {
+        ?>
+            <div class="background-cover loaded" style="background-image: url(&quot;<?php echo get_the_post_thumbnail_url($recent["ID"],'full'); ?>&quot;);"></div>
+        <?php
+            }
+        ?>
 
         <div class="container">
             <div class="header">
@@ -22,8 +30,7 @@
                     <ul>
                         <?php
                             // BOTW
-                            $args = array( 'numberposts' => '1', 'post_type' => 'biere' );
-                            $recent_posts = wp_get_recent_posts( $args );
+                            // Based on previous beer request
                             foreach( $recent_posts as $recent ){
                                 echo '<li><a href="' . get_permalink($recent["ID"]) . '" class="main-nav__item"><span>' . $recent[post_title] . '</span>Bière de la semaine</a></li>';
                             }
@@ -68,8 +75,9 @@
                         if ( $query->have_posts() ) {
                             while ( $query->have_posts() ) {
                             $query->the_post();
-                                echo '<h2>' . get_the_title() . '</h2>';
-                                echo '<p class="entry__thumbnail">' . get_the_post_thumbnail() . '</p>';
+                                echo '<h2 class="entry__title">' . get_the_title() . '</h2>';
+                                if( $post_type !== 'biere' )
+                                    echo '<p class="entry__thumbnail">' . get_the_post_thumbnail() . '</p>';
                                 the_content();
                             }
                             wp_reset_postdata();
@@ -78,6 +86,14 @@
                 </div>
             </div>
         </div>
+
+        <nav class="alt-nav">
+            <ul>
+                <li>
+                    <a href="https://www.instagram.com/uncppd/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                </li>
+            </ul>
+        </nav>
     </div>
 
 <?php get_footer(); ?>

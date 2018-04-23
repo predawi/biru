@@ -8,9 +8,9 @@ import AltNav from './AltNav'
 
 const cap = `${process.env.PUBLIC_URL}/src/assets/img/cap.svg`
 const close = `${process.env.PUBLIC_URL}/src/assets/img/close.svg`
-// const baseFetch = '/wp-json/wp/v2/'
+const baseFetch = '/wp-json/wp/v2/'
 // For developpement only
-const baseFetch = 'http://localhost/biru/wp-json/wp/v2/'
+// const baseFetch = 'http://localhost/biru/wp-json/wp/v2/'
 
 const limitFetch = '?per_page=1&_embed'
 let firstClick = true
@@ -37,19 +37,20 @@ class App extends Component {
     const packRes = await fetch(baseFetch + 'packaging' + limitFetch)
     const packData = await packRes.json()
 
-    // const gifRes = await fetch(baseFetch + 'gif' + limitFetch)
-    // const gifData = await gifRes.json()
-
     this.setState({
       beer: beerData[0],
       beerBg: beerData[0]._embedded['wp:featuredmedia']['0'].source_url,
       beerTitle: beerData[0].title.rendered,
+      beerLink: beerData[0].link,
       spot: spotData[0],
       spotTitle: spotData[0].title.rendered,
+      spotLink: spotData[0].link,
       follow: followData[0],
       followTitle: followData[0].title.rendered,
+      followLink: followData[0].link,
       pack: packData[0],
-      // gif: gifData[0],
+      packTitle: packData[0].title.rendered,
+      packLink: packData[0].link,
       loading: false
     })
   }
@@ -96,19 +97,23 @@ class App extends Component {
 
     switch (id) {
       case 'botw':
-        content = beer.content.rendered +
+        content = '<h2 class="entry__title">' + beer.title.rendered + '</h2>' +
+                  beer.content.rendered +
                   '<p class="entry__note__wrapper"><span class="entry__note">' + beer.note + '</span> / 10</p>'
         break
       case 'sotw':
-        content = '<p class="entry__thumbnail"><img src=' + spot._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url + '></p>' +
+        content = '<h2 class="entry__title">' + spot.title.rendered + '</h2>' +
+                  '<p class="entry__thumbnail"><img src=' + spot._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url + '></p>' +
                   spot.content.rendered
         break
       case 'fotw':
-        content = '<p class="entry__thumbnail"><img src=' + follow._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url + '></p>' +
+        content = '<h2 class="entry__title">' + follow.title.rendered + '</h2>' +
+                  '<p class="entry__thumbnail"><img src=' + follow._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url + '></p>' +
                   follow.content.rendered
         break
       case 'potw':
-        content = '<p class="entry__thumbnail"><img src=' + pack._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url + '></p>' +
+        content = '<h2 class="entry__title">' + pack.title.rendered + '</h2>' +
+                  '<p class="entry__thumbnail"><img src=' + pack._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url + '></p>' +
                   pack.content.rendered
         break
       /* case 'gotw':
@@ -140,7 +145,7 @@ class App extends Component {
   }
 
   render () {
-    const { loading, show, beerBg, beerTitle, spotTitle, followTitle } = this.state
+    const { loading, show, beerBg, beerTitle, beerLink, spotTitle, spotLink, followTitle, followLink, packTitle, packLink } = this.state
     const divStyle = {
       backgroundImage: 'url(' + beerBg + ')'
     }
@@ -161,7 +166,15 @@ class App extends Component {
             <div className="container">
               <div className="header">
                 <Header />
-                <Nav beerTitle={beerTitle} spotTitle={spotTitle} followTitle={followTitle} handleClick={this.handleClick} />
+                <Nav beerTitle={beerTitle}
+                  beerLink={beerLink}
+                  spotTitle={spotTitle}
+                  spotLink={spotLink}
+                  followTitle={followTitle}
+                  followLink={followLink}
+                  packTitle={packTitle}
+                  packLink={packLink}
+                  handleClick={this.handleClick} />
               </div>
               <div id="entry" className="entry">
                 <button id="entry__close" className="entry__close" onClick={this.closeClick}>

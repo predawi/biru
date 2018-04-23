@@ -30,7 +30,6 @@
             width: 574px;
         }
         p {
-            margin-top: -10px;
             opacity: 0;
         }
     }
@@ -56,6 +55,15 @@
     }
     img {
         @include img__responsive;
+    }
+    &__title {
+        font-family: $font-sansserif-alt;
+        font-size: 28px;
+        font-weight: 500;
+        text-transform: uppercase;
+        @media screen and (min-width: $desktop-small) {
+            font-size: 38px;
+        }
     }
     &__thumbnail {
         img {
