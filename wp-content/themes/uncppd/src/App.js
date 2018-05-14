@@ -12,7 +12,14 @@ const baseFetch = '/wp-json/wp/v2/'
 // For developpement only
 // const baseFetch = 'http://localhost/biru/wp-json/wp/v2/'
 
-const limitFetch = '?per_page=1&_embed'
+let limitFetch = '?per_page=1&_embed'
+
+let pathname = window.location.pathname
+
+if (pathname.substring(0, 9) === '/edition-') {
+  limitFetch = '?per_page=1&_embed&filter[tag]=' + pathname.substring(1, 12)
+}
+
 let firstClick = true
 let $timer = 0
 

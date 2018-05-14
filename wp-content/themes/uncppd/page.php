@@ -2,7 +2,7 @@
 <?php
     $post_type = 'page';
 ?>
-    <div class="master-container">
+    <div class="master-container reading ">
         <div class="background-cover loaded" style="background-image: url(&quot;http://uncppd.com/wp-content/uploads/2018/03/punk_ipa.jpg&quot;);"></div>
 
         <div class="container">
@@ -40,8 +40,6 @@
                         ?>
                     </ul>
                 </div>
-
-                <div class="alt-nav"></div>
             </div>
 
             <div id="entry" class="entry opening opened">
@@ -70,6 +68,7 @@
                 </div>
             </div>
         </div>
+        <?php include 'altnav.php' ?>
     </div>
 
 <?php get_footer(); ?>

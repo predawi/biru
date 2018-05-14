@@ -150,6 +150,19 @@
             }
         }
     }
+    &--archives {
+        &__title {
+            margin-bottom: 10px;
+            text-transform: capitalize;
+            font-size: 30px;
+            a {
+                color: $maincolor;
+                &:after {
+                    height: 8px;
+                }
+            }
+        }
+    }
 }
 
 @keyframes opening {

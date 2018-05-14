@@ -55,8 +55,6 @@
                         ?>
                     </ul>
                 </div>
-
-                <div class="alt-nav"></div>
             </div>
 
             <div id="entry" class="entry opening opened">
@@ -86,14 +84,7 @@
                 </div>
             </div>
         </div>
-
-        <nav class="alt-nav">
-            <ul>
-                <li>
-                    <a href="https://www.instagram.com/uncppd/" target="_blank" rel="noopener noreferrer">Instagram</a>
-                </li>
-            </ul>
-        </nav>
+        <?php include 'altnav.php' ?>
     </div>
 
 <?php get_footer(); ?>

@@ -39,7 +39,7 @@ function create_biere_cpt() {
 		'labels' => $labels,
 		'menu_icon' => 'dashicons-editor-bold',
 		'supports' => array('title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'author', 'page-attributes', 'post-formats', 'custom-fields', ),
-		'taxonomies' => array('biere', ),
+		'taxonomies' => array('biere', 'post_tag'),
 		'public' => true,
 		'show_ui' => true,
 		'show_in_menu' => true,
@@ -98,7 +98,7 @@ function create_spot_cpt() {
 		'labels' => $labels,
 		'menu_icon' => 'dashicons-location-alt',
 		'supports' => array('title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'author', 'page-attributes', 'post-formats', 'custom-fields', ),
-		'taxonomies' => array(),
+		'taxonomies' => array('post_tag'),
 		'public' => true,
 		'show_ui' => true,
 		'show_in_menu' => true,
@@ -117,65 +117,6 @@ function create_spot_cpt() {
 
 }
 add_action( 'init', 'create_spot_cpt', 0 );
-
-// Register Custom Post Type Gif
-// Post Type Key: gif
-function create_gif_cpt() {
-
-	$labels = array(
-		'name' => __( 'Gifs', 'Post Type General Name', 'textdomain' ),
-		'singular_name' => __( 'Gif', 'Post Type Singular Name', 'textdomain' ),
-		'menu_name' => __( 'Gifs', 'textdomain' ),
-		'name_admin_bar' => __( 'Gif', 'textdomain' ),
-		'archives' => __( 'Archives Gif', 'textdomain' ),
-		'attributes' => __( 'Attributs Gif', 'textdomain' ),
-		'parent_item_colon' => __( 'Parents Gif:', 'textdomain' ),
-		'all_items' => __( 'Tous Gifs', 'textdomain' ),
-		'add_new_item' => __( 'Ajouter nouvel Gif', 'textdomain' ),
-		'add_new' => __( 'Ajouter', 'textdomain' ),
-		'new_item' => __( 'Nouvel Gif', 'textdomain' ),
-		'edit_item' => __( 'Modifier Gif', 'textdomain' ),
-		'update_item' => __( 'Mettre à jour Gif', 'textdomain' ),
-		'view_item' => __( 'Voir Gif', 'textdomain' ),
-		'view_items' => __( 'Voir Gifs', 'textdomain' ),
-		'search_items' => __( 'Rechercher dans les Gif', 'textdomain' ),
-		'not_found' => __( 'Aucun Giftrouvé.', 'textdomain' ),
-		'not_found_in_trash' => __( 'Aucun Giftrouvé dans la corbeille.', 'textdomain' ),
-		'featured_image' => __( 'Image mise en avant', 'textdomain' ),
-		'set_featured_image' => __( 'Définir l’image mise en avant', 'textdomain' ),
-		'remove_featured_image' => __( 'Supprimer l’image mise en avant', 'textdomain' ),
-		'use_featured_image' => __( 'Utiliser comme image mise en avant', 'textdomain' ),
-		'insert_into_item' => __( 'Insérer dans Gif', 'textdomain' ),
-		'uploaded_to_this_item' => __( 'Téléversé sur cet Gif', 'textdomain' ),
-		'items_list' => __( 'Liste Gifs', 'textdomain' ),
-		'items_list_navigation' => __( 'Navigation de la liste Gifs', 'textdomain' ),
-		'filter_items_list' => __( 'Filtrer la liste Gifs', 'textdomain' ),
-	);
-	$args = array(
-		'label' => __( 'Gif', 'textdomain' ),
-		'description' => __( '', 'textdomain' ),
-		'labels' => $labels,
-		'menu_icon' => 'dashicons-format-image',
-		'supports' => array('title', 'editor', 'custom-fields', ),
-		'taxonomies' => array(),
-		'public' => true,
-		'show_ui' => true,
-		'show_in_menu' => true,
-		'menu_position' => 5,
-		'show_in_admin_bar' => false,
-		'show_in_nav_menus' => false,
-		'can_export' => true,
-		'has_archive' => true,
-		'hierarchical' => false,
-		'exclude_from_search' => false,
-		'show_in_rest' => true,
-		'publicly_queryable' => true,
-		'capability_type' => 'post',
-	);
-	register_post_type( 'gif', $args );
-
-}
-add_action( 'init', 'create_gif_cpt', 0 );
 
 // Register Custom Post Type Packaging
 // Post Type Key: packaging
@@ -216,7 +157,7 @@ function create_packaging_cpt() {
 		'labels' => $labels,
 		'menu_icon' => 'dashicons-edit',
 		'supports' => array('title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'author', 'page-attributes', 'post-formats', 'custom-fields', ),
-		'taxonomies' => array(),
+		'taxonomies' => array('post_tag'),
 		'public' => true,
 		'show_ui' => true,
 		'show_in_menu' => true,
@@ -235,65 +176,6 @@ function create_packaging_cpt() {
 
 }
 add_action( 'init', 'create_packaging_cpt', 0 );
-
-// Register Custom Post Type Citation
-// Post Type Key: citation
-function create_citation_cpt() {
-
-	$labels = array(
-		'name' => __( 'Citations', 'Post Type General Name', 'textdomain' ),
-		'singular_name' => __( 'Citation', 'Post Type Singular Name', 'textdomain' ),
-		'menu_name' => __( 'Citations', 'textdomain' ),
-		'name_admin_bar' => __( 'Citation', 'textdomain' ),
-		'archives' => __( 'Archives Citation', 'textdomain' ),
-		'attributes' => __( 'Attributs Citation', 'textdomain' ),
-		'parent_item_colon' => __( 'Parents Citation:', 'textdomain' ),
-		'all_items' => __( 'Tous Citations', 'textdomain' ),
-		'add_new_item' => __( 'Ajouter nouvel Citation', 'textdomain' ),
-		'add_new' => __( 'Ajouter', 'textdomain' ),
-		'new_item' => __( 'Nouvel Citation', 'textdomain' ),
-		'edit_item' => __( 'Modifier Citation', 'textdomain' ),
-		'update_item' => __( 'Mettre à jour Citation', 'textdomain' ),
-		'view_item' => __( 'Voir Citation', 'textdomain' ),
-		'view_items' => __( 'Voir Citations', 'textdomain' ),
-		'search_items' => __( 'Rechercher dans les Citation', 'textdomain' ),
-		'not_found' => __( 'Aucun Citationtrouvé.', 'textdomain' ),
-		'not_found_in_trash' => __( 'Aucun Citationtrouvé dans la corbeille.', 'textdomain' ),
-		'featured_image' => __( 'Image mise en avant', 'textdomain' ),
-		'set_featured_image' => __( 'Définir l’image mise en avant', 'textdomain' ),
-		'remove_featured_image' => __( 'Supprimer l’image mise en avant', 'textdomain' ),
-		'use_featured_image' => __( 'Utiliser comme image mise en avant', 'textdomain' ),
-		'insert_into_item' => __( 'Insérer dans Citation', 'textdomain' ),
-		'uploaded_to_this_item' => __( 'Téléversé sur cet Citation', 'textdomain' ),
-		'items_list' => __( 'Liste Citations', 'textdomain' ),
-		'items_list_navigation' => __( 'Navigation de la liste Citations', 'textdomain' ),
-		'filter_items_list' => __( 'Filtrer la liste Citations', 'textdomain' ),
-	);
-	$args = array(
-		'label' => __( 'Citation', 'textdomain' ),
-		'description' => __( '', 'textdomain' ),
-		'labels' => $labels,
-		'menu_icon' => 'dashicons-format-quote',
-		'supports' => array('title', 'editor', 'custom-fields', ),
-		'taxonomies' => array(),
-		'public' => true,
-		'show_ui' => true,
-		'show_in_menu' => true,
-		'menu_position' => 5,
-		'show_in_admin_bar' => false,
-		'show_in_nav_menus' => false,
-		'can_export' => true,
-		'has_archive' => true,
-		'hierarchical' => false,
-		'exclude_from_search' => false,
-		'show_in_rest' => true,
-		'publicly_queryable' => true,
-		'capability_type' => 'post',
-	);
-	register_post_type( 'citation', $args );
-
-}
-add_action( 'init', 'create_citation_cpt', 0 );
 
 // Register Custom Post Type Follow
 // Post Type Key: follow
@@ -334,7 +216,7 @@ function create_follow_cpt() {
 		'labels' => $labels,
 		'menu_icon' => 'dashicons-share',
 		'supports' => array('title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'author', 'page-attributes', 'post-formats', 'custom-fields', ),
-		'taxonomies' => array(),
+		'taxonomies' => array('post_tag'),
 		'public' => true,
 		'show_ui' => true,
 		'show_in_menu' => true,
