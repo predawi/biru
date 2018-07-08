@@ -6,7 +6,7 @@ import Header from './Header'
 import Nav from './Nav'
 import AltNav from './AltNav'
 
-const cap = `${process.env.PUBLIC_URL}/src/assets/img/cap.svg`
+const cap = `${process.env.PUBLIC_URL}/src/assets/img/cap.gif`
 const close = `${process.env.PUBLIC_URL}/src/assets/img/close.svg`
 const baseFetch = '/wp-json/wp/v2/'
 // For developpement only
@@ -161,10 +161,7 @@ class App extends Component {
       <Fragment>
         {loading &&
           <div className="loading">
-            <div className="translater">
-              <img src={cap} className="loading__cap" alt="" />
-            </div>
-            <p>Décapsulage...</p>
+            <img src={cap} className="loading__cap" alt="" />
           </div>
         }
         {!loading &&
