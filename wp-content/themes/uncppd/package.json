@@ -9,13 +9,12 @@
     "eslint-plugin-node": "^5.2.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
-    "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-clean-css": "^2.4.0",
     "gulp-favicons": "^2.2.7",
     "gulp-load-plugins": "^1.5.0",
     "gulp-pxtorem": "^2.0.0",
-    "gulp-sass": "^3.1.0",
+    "gulp-sass": "^3.2.1",
     "gulp-sourcemaps": "^2.6.1",
     "moment": "^2.19.3",
     "react": "^16.2.0",
@@ -31,6 +30,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1"
   },
   "homepage": "http://uncppd.com/wp-content/themes/uncppd/"
