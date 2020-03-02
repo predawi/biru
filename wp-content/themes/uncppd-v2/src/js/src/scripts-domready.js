@@ -5,7 +5,9 @@ const timer = 500
 
 let firstClick = true
 
-$('.main-nav a').on('click', function (e) {
+jQuery('.main-nav a').on('click', function(e) {
+  jQuery('.main-nav a').removeClass('active')
+
   // Open entry wrapper and add active class to nav
   if (firstClick) {
     firstClick = false
@@ -18,7 +20,7 @@ $('.main-nav a').on('click', function (e) {
     }, timer)
   }
 
-  $(this).addClass('active')
+  jQuery(this).addClass('active')
   setTimeout(() => {
     entry.classList.remove('closing')
     entry.classList.add('opening')
@@ -28,7 +30,9 @@ $('.main-nav a').on('click', function (e) {
     entry.classList.add('opened')
   }, timer + 300)
 
-  let targetId = $(this).attr('id')
+  let targetId = jQuery(this).attr('id')
+
+  entryInner.className = 'entry__inner'
 
   switch (targetId) {
     case 'botw':
@@ -45,12 +49,11 @@ $('.main-nav a').on('click', function (e) {
       break
   }
 
-  setTimeout(() => {
-    entry.classList.remove('opening')
-    entry.classList.remove('opened')
-    masterContainer.classList.remove('reading')
-  }, timer)
+  // setTimeout(() => {
+  //   entry.classList.remove('opening')
+  //   entry.classList.remove('opened')
+  //   masterContainer.classList.remove('reading')
+  // }, timer)
 
   e.preventDefault()
-
 })

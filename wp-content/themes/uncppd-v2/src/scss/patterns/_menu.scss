@@ -1,123 +1,150 @@
+/**
+ * Menu
+ */
+
 .main-nav {
-    ul {
-        margin: 0;
-    }
-    li {
-        padding: 7px 0;
-    }
-    .main-nav__item {
-        position: relative;
-        display: inline-block;
-        padding: 0;
-        line-height: 32px;
-        font-size: 29px;
-        text-align: left;
-        border: 0;
-        border-radius: 0;
-        outline: none;
-        background: none;
-        box-shadow: none;
-        color: $lightcolor;
-        text-transform: uppercase;
-        font-family: $font-sansserif;
-        span {
-            display: block;
-            font-family: $font-sansserif-alt;
-            font-weight: 900;
-            letter-spacing: 1px;
-        }
-        &:after {
-            content: "";
-            position: absolute;
-            z-index: -1;
-            left: -20px; top: 50%;
-            width: 0;
-            background: $maincolor;
-            transition: width 0.2s ease-in-out;
-        }
-        &.active {
-            &:after {
-                width: calc(100% + 20px);
-            }
-        }
-        @include hover {
-            &:after {
-                width: calc(100% + 20px);
-            }
-        }
-    }
-    @media screen and (min-width: $desktop-small) {
-        li {
-            margin-bottom: 30px;
-            padding: 0;
-            &:first-child {
-                margin-bottom: 60px;
-                .main-nav__item {
-                    font-size: 21px;
-                    span {
-                        line-height: 53px;
-                        font-size: 63px;
-                    }
-                    &:after {
-                        height: 45px;
-                        margin-top: -20px;
-                    }
-                }
-            }
-        }
-        .main-nav__item {
-            max-width: 440px;
-            line-height: 25px;
-            font-size: 15px;
-            span {
-                font-size: 30px;
-            }
-            &:after {
-                height: 28px;
-                margin-top: -15px;
-            }
-        }
-    }
+	ul {
+		margin: 0;
+	}
+
+	li {
+		padding: 7px 0;
+	}
+
+	.main-nav__item {
+		position: relative;
+		display: inline-block;
+		padding: 0;
+		line-height: 32px;
+		font-size: 29px;
+		text-align: left;
+		border: 0;
+		border-radius: 0;
+		outline: none;
+		background: none;
+		box-shadow: none;
+		color: $lightcolor;
+		text-transform: uppercase;
+		font-family: $customfont-1;
+
+		span {
+			display: block;
+			font-family: $customfont-2;
+			font-weight: 900;
+			letter-spacing: 1px;
+		}
+
+		&:after {
+			content: "";
+			position: absolute;
+			z-index: -1;
+			left: -20px;
+			top: 50%;
+			width: 0;
+			background: $maincolor;
+			transition: width 0.2s ease-in-out;
+		}
+
+		&.active {
+			&:after {
+				width: calc(100% + 20px);
+			}
+		}
+
+		@include hover {
+			&:after {
+				width: calc(100% + 20px);
+			}
+		}
+	}
+
+	@include breakpoints(md) {
+		li {
+			margin-bottom: 30px;
+			padding: 0;
+
+			&:first-child {
+				margin-bottom: 60px;
+
+				.main-nav__item {
+					font-size: 21px;
+
+					span {
+						line-height: 53px;
+						font-size: 63px;
+					}
+
+					&:after {
+						height: 45px;
+						margin-top: -20px;
+					}
+				}
+			}
+		}
+
+		.main-nav__item {
+			max-width: 440px;
+			line-height: 25px;
+			font-size: 15px;
+
+			span {
+				font-size: 30px;
+			}
+
+			&:after {
+				height: 28px;
+				margin-top: -15px;
+			}
+		}
+	}
 }
+
 .alt-nav {
-    display: none;
-    text-align: right;
-    a {
-        position: relative;
-        display: inline-block;
-        color: $lightcolor;
-        text-transform: uppercase;
-        font-family: $font-sansserif;
-        transition: color .3s ease-in-out;
-        &:after {
-            content: "";
-            position: absolute;
-            z-index: -1;
-            left: 4px;
-            bottom: 3px;
-            width: 0;
-            height: 6px;
-            background: $maincolor;
-            transition: width .2s cubic-bezier(.9, 0, 0, 1);
-            .reading & {
-                background: rgba($maincolor, 0.3);
-            }
-        }
-        @include hover {
-            &:after {
-                width: 100%;
-            }
-        }
-    }
-    .reading & {
-        a {
-            color: $maincolor;
-        }
-    }
-    @media screen and (min-width: $desktop-small) {
-        position: absolute;
-        z-index: 2;
-        right: 10px; top: 49%;
-        display: block;
-    }
+	display: none;
+	text-align: right;
+
+	a {
+		position: relative;
+		display: inline-block;
+		color: $lightcolor;
+		text-transform: uppercase;
+		font-family: $customfont-1;
+		transition: color .3s ease-in-out;
+
+		&:after {
+			content: "";
+			position: absolute;
+			z-index: -1;
+			left: 4px;
+			bottom: 3px;
+			width: 0;
+			height: 6px;
+			background: $maincolor;
+			transition: width .2s cubic-bezier(.9, 0, 0, 1);
+
+			.reading & {
+				background: rgba($maincolor, 0.3);
+			}
+		}
+
+		@include hover {
+			&:after {
+				width: 100%;
+			}
+		}
+	}
+
+	.reading & {
+		a {
+			color: $maincolor;
+		}
+	}
+
+	@include breakpoints(md) {
+		position: absolute;
+		z-index: 2;
+		right: 10px;
+		top: 49%;
+		display: block;
+	}
 }

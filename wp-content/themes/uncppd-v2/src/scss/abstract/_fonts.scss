@@ -1,0 +1,25 @@
+/**
+ * Font Family
+ */
+$font-sansserif: Arial, Helvetica, sans-serif;
+$font-serif: Times, Georgia, serif;
+$customfont-1: CA-Cula, sans-serif;
+$customfont-2: Race-1, sans-serif;;
+
+/**
+ * Font Size
+ */
+$base-fz: 16px;
+$heading-font-size: 25px;
+
+/**
+ * Line Height
+ */
+$base-lh: 1.4;
+$heading-line-height: 1.2;
+
+//Roboto for body text
+@include declare-font-face("CA-Cula", "#{$fonts-url}/ca-cula/CA-Cula"); //regularx400
+
+//Circular for Hn
+@include declare-font-face("Race-1", "#{$fonts-url}/race1/RACE1-Brannt-NCV"); //regularx400

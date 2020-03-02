@@ -59,6 +59,7 @@
 							echo '<h2 class="entry__title">' . get_the_title() . '</h2>';
 							echo '<p class="entry__thumbnail">' . get_the_post_thumbnail() . '</p>';
 							the_content();
+							echo '<p class="entry__note__wrapper"><span class="entry__note">' . get_post_meta( get_the_ID(), 'note', true ) . '</span> / 10</p>';
 							echo '</div>';
 						}
 						wp_reset_postdata();

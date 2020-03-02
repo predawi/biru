@@ -1,8 +1,13 @@
+/**
+ * Entry
+ */
+
 .entry {
     $parent: &;
 
     position: absolute;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 0;
     padding: 20px 30px 60px;
@@ -10,8 +15,10 @@
     color: $dark-gray;
     background: $lightcolor;
     transition: opacity .3s ease-in-out;
-    @media screen and (min-width: $desktop-small) {
-        top: 0; bottom: 0;
+
+    @include breakpoints(md) {
+        top: 0;
+        bottom: 0;
         height: 100%;
         left: 480px;
         width: 0;
@@ -19,77 +26,94 @@
         overflow: scroll;
         overflow-x: hidden;
     }
+
     &::-webkit-scrollbar {
         width: 0px;
         /* remove scrollbar space */
         background: transparent;
         /* optional: just make scrollbar invisible */
     }
+
     &__inner {
-        @media screen and (min-width: $desktop-small) {
+        @include breakpoints(md) {
             width: 574px;
         }
+
         p {
             opacity: 0;
         }
+
         &--beer {
             .entry__content--beer {
                 display: block;
             }
         }
+
         &--spot {
             .entry__content--spot {
                 display: block;
             }
         }
+
         &--follow {
             .entry__content--follow {
                 display: block;
             }
         }
+
         &--packaging {
             .entry__content--packaging {
                 display: block;
             }
         }
     }
+
     a {
         position: relative;
         z-index: 1;
         display: inline-block;
-        color: $altcolor;
+        color: $maincolor;
+
         &:after {
             content: "";
             position: absolute;
             z-index: -1;
-            left: 4px; bottom: 3px;
-            width: 0; height: 6px;
+            left: 4px;
+            bottom: 3px;
+            width: 0;
+            height: 6px;
             background: rgba($maincolor, 0.3);
             transition: width .2s cubic-bezier(.9, 0, 0, 1);
         }
+
         @include hover {
             &:after {
                 width: 100%;
             }
         }
     }
+
     img {
         @include img__responsive;
     }
+
     &__title {
-        font-family: $font-sansserif-alt;
+        font-family: $customfont-2;
         font-size: 28px;
         font-weight: 500;
         text-transform: uppercase;
-        @media screen and (min-width: $desktop-small) {
+
+        @include breakpoints(md) {
             font-size: 38px;
         }
     }
+
     &__thumbnail {
         img {
             margin: 0 auto 30px;
         }
     }
+
     &__note__wrapper {
         position: relative;
         top: 25px;
@@ -102,39 +126,49 @@
         font-size: 50px;
         font-weight: 900;
         color: $dark-gray;
-        @media screen and (min-width: $desktop-small) {
+
+        @include breakpoints(md) {
             top: 50px;
         }
+
         &:after {
             content: "";
             position: absolute;
             z-index: -1;
-            top: -10px; right: -5px;
-            width: 83px; height: 33px;
-            background: $altcolor;
+            top: -10px;
+            right: -5px;
+            width: 83px;
+            height: 33px;
+            background: $maincolor;
         }
     }
+
     &__note {
         color: $maincolor;
     }
+
     &__close {
         position: fixed;
         z-index: 2;
-        top: 15px; right: 15px;
+        top: 15px;
+        right: 15px;
         padding: 0;
         border: 0;
         border-radius: 0;
         outline: none;
         background: none;
         box-shadow: none;
+
         img {
             width: 30px;
             height: 30px;
         }
-        @media screen and (min-width: $desktop-small) {
+
+        @include breakpoints(md) {
             display: none;
         }
     }
+
     &__content {
         display: none;
     }
@@ -143,19 +177,24 @@
     &.opening {
         min-height: 100vh;
         height: auto;
-        @media screen and (min-width: $desktop-small) {
+
+        @include breakpoints(md) {
             animation: opening 1s cubic-bezier(.9, 0, 0, 1) forwards;
         }
     }
+
     &.closing {
         overflow: hidden;
         animation: mobileClosing .5s ease-in-out forwards;
-        @media screen and (min-width: $desktop-small) {
+
+        @include breakpoints(md) {
             animation: closing .5s ease-in-out forwards;
         }
     }
+
     &.opened {
         opacity: 1;
+
         #{$parent}__inner {
             p {
                 @for $i from 1 through 8 {
@@ -163,23 +202,28 @@
                         animation-delay: calc(#{$i} * 0.08s + 0.5s);
                     }
                 }
+
                 position: relative;
                 animation-name: mobileRevealed;
                 animation-duration: .3s;
                 animation-fill-mode: forwards;
-                @media screen and (min-width: $desktop-small) {
+
+                @include breakpoints(md) {
                     animation-name: revealed;
                 }
             }
         }
     }
+
     &--archives {
         &__title {
             margin-bottom: 10px;
             text-transform: capitalize;
             font-size: 30px;
+
             a {
                 color: $maincolor;
+
                 &:after {
                     height: 8px;
                 }
@@ -193,44 +237,53 @@
         width: 0;
         opacity: 0;
     }
+
     to {
         width: calc(((100vw - 1024px) / 2) + (1024px - 480px));
         opacity: 1;
     }
 }
+
 @keyframes mobileClosing {
     from {
         opacity: 1;
     }
+
     to {
         opacity: 0;
     }
 }
+
 @keyframes closing {
     from {
         width: calc(((100vw - 1024px) / 2) + (1024px - 480px));
         opacity: 1;
     }
+
     to {
         width: 0;
         opacity: 0;
     }
 }
+
 @keyframes mobileRevealed {
     from {
         margin-top: -20px;
         opacity: 0;
     }
+
     to {
         margin-top: 0;
         opacity: 1;
     }
 }
+
 @keyframes revealed {
     from {
         left: -20px;
         opacity: 0;
     }
+
     to {
         left: 0;
         opacity: 1;

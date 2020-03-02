@@ -255,12 +255,6 @@ function get_meta_to_response( $object, $field_name, $request ) {
 
 add_theme_support( 'post-thumbnails' );
 
-$json = file_get_contents( get_template_directory_uri() . '/build/asset-manifest.json' );
-$obj = json_decode($json);
-
-
-
-wp_enqueue_style( 'app-style', get_template_directory_uri() . '/build/' .  $obj->{'main.css'} );
+wp_enqueue_style( 'app-style', get_template_directory_uri() . '/dist/assets/app.css', array(),'1.0', false);
 wp_enqueue_script( 'jquery', '//code.jquery.com/jquery-3.3.1.min.js', array( 'jquery' ), '3.3.1', true );
-// wp_enqueue_script( 'app-js', get_template_directory_uri() . '/build/' . $obj->{'main.js'}, array(),'1.0', true);
-wp_enqueue_script( 'app-js', get_template_directory_uri() . '/src/js/app.js', array(),'1.0', true);
+wp_enqueue_script( 'app-js', get_template_directory_uri() . '/dist/assets/app.js', array(),'1.0', true);
