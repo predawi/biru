@@ -16,7 +16,7 @@
     "gulp-pxtorem": "^2.0.0",
     "gulp-sass": "^3.2.1",
     "gulp-sourcemaps": "^2.6.1",
-    "moment": "^2.19.3",
+    "moment": "^2.29.4",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.0.17",
